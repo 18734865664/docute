@@ -14,7 +14,12 @@
 <!-- 比如 config.js -->
 <script>
     self.$config = {
-        home:"README.md"
+        nav: [
+            // 首页
+            {title: 'Home', path: '/'},
+            // 中文文档
+            {title: '中文文档', path: '/language/chinese'}
+        ]
     }
 </script>
 <!-- 加载 docute 的 js 库 -->
