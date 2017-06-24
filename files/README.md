@@ -1,5 +1,5 @@
 # 橘子文档库
-![image](attachment/images/juziyulelogo.jpg)
+![image](attachment/images/juzilogo.jpg)
 ## 摘要
 🍊橘子娱乐 🚀技术团队知识积累
 
