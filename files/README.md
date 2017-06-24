@@ -1,10 +1,10 @@
 # 橘子文档库
-![image](/attachment/images/juziyulelogo.jpg)
+![image](attachment/images/juziyulelogo.jpg)
 ## 摘要
-🍊橘子娱乐 技术团队知识积累
+🍊橘子娱乐 🚀技术团队知识积累
 
 ## 阅读对象
-🍊橘子娱乐 技术团队成员
+🍊橘子娱乐 🚀技术团队成员
 
 ## 说明
 
