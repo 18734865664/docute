@@ -7,8 +7,25 @@
     <title>My Awesome Doc</title>
     <!-- docute 的 CSS -->
     <link rel="stylesheet" href="/dist/docute.css">
+    <style>
+        .line_header_2 {
+            width: 100%;
+            height: 40px;
+            background: url(http://cdn.happyjuzi.com/juzi-pc/pc1.3/img/stop.png) no-repeat top #ff5000;
+            background-size: 1274px auto;
+            text-align: center;
+        }
+        .line_header {
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+        }
+        </style>
 </head>
 <body>
+<div class="line_header line_header_2">
+    <img src="http://cdn.happyjuzi.com/juzi-pc/pc1.2/img/young.png" alt="年轻人第一新媒体No.1">
+</div>
 <div id="app"></div>
 <!-- 你也可以把包含 $config 配置的脚本放到单独的文件里 -->
 <!-- 比如 config.js -->
@@ -28,9 +45,9 @@
             {title:"团队",type:"dropdown",items:[
                 {title:"后端",path:"/backend-development/"},
                 {title:"前端",path:"/front-development/"},
-                {title:"客户端",path:"/mobile-development/"},
                 {title:"测试",path:"/qa/"},
-                {title:"系统运维",path:"/ops/"}
+                {title:"运维",path:"/ops/"}
+                {title:"客户端",path:"/mobile-development/"},
             ]},
         ]
     });
