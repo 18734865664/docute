@@ -64,4 +64,6 @@ php rpc_server.php start|stop|reload
 1. require_once vendor/autoload.php文件
 1. 使用方法，见composer中示例test目录下
 
+> 注意⚠️
+修改composer.json,请参见test下composer.json.default文件
 
