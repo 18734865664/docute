@@ -2,9 +2,9 @@
 
 ## 提供服务列表
 
-服务名 | 调用 | 备注 
+服务名 | 调用 | 备注 | ...
 ---|---|---
-反垃圾 [进入](/project/antispam)| App\Antispam::check | 文本反垃圾，图片反垃圾
+反垃圾 | App\Antispam::check | 文本反垃圾，图片反垃圾 | [more](/project/antispam/)
 
 ## 服务方案
 方案服务端，客户端完全基于Swoole实现RPC通讯
