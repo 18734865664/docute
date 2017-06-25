@@ -13,7 +13,7 @@ curl -sS https://getcomposer.org/installer | php -- --install-dir=script
 ```
 
 
-### 使用composer
+### 使用
 要解决和下载依赖
 > php composer.phar install
 
@@ -51,9 +51,6 @@ php composer.phar update
 php composer.phar update monolog/monolog [...]
 ```
 
-
-### 注意⚠️
-如果你正在使用Git来管理你的项目， 你可能要添加 vendor 到你的 .gitignore 文件中。 你不会希望将所有的代码都添加到你的版本库中。
 
 ## 库（资源包）
 ### 每一个项目都是一个包
@@ -94,7 +91,7 @@ php composer.phar update monolog/monolog [...]
         }
     }
 ```
-## 项目根目录下的composer.json文件
+### 项目根目录下的composer.json文件
 ```
 {
   "repositories": [
@@ -115,10 +112,20 @@ php composer.phar update monolog/monolog [...]
 如果是feature分支则为“[分之名].x-dev”，x是技术要求，必须加composer才可以认
 
 
-## 橘子composer项目版本控制
+## composer项目版本控制
 使用git版本控制
 > ssh://git@111.203.201.131:8022/var/www/juzi-php-vendor-rpcclient.git。
 ⚠️注意 使用ssh密钥登录
+
+### git中怎么管理
+如果你正在使用Git来管理你的项目， 
+1. 你可能要添加 vendor 到你的 .gitignore 文件中。 你不会希望将所有的代码都添加到你的版本库中。
+1. 提交/composer.json文件到git库中.
+1. 提交/composer.lock文件到git库中。
+1. 测试环境中，在"require"节点需要设置版本号
+    1. 测试环境，设置为feature分支，如"170622.x-dev"。
+    1. 正式环境，设置为master分支，如"dev-master"。
+
 
 橘子composer项目版本库命名规范
 > 库名：juzi-php-vendor-rpcclient.git。通过"-"号分隔，最后部分“如rpcclient”区分每个插件库名。
