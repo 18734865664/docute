@@ -57,6 +57,7 @@ php composer.phar update monolog/monolog [...]
 一旦你有一个包含 composer.json 文件的库存储在线上版本控制系统（例如：Git），你的库就可以被 Composer 所安装
 
 > composer.json文件中 classmap用于没有遵循psr-04规范的class文件用class引入
+
 ```
 {
   "name": "juzi/RPCClient",
@@ -82,7 +83,9 @@ php composer.phar update monolog/monolog [...]
   }
 }
 ```
+
 其中autoload推荐使用psr-04标准,如下
+
 ```
     "autoload": {
         "psr-4": {
@@ -92,6 +95,7 @@ php composer.phar update monolog/monolog [...]
     }
 ```
 ### 项目根目录下的composer.json文件
+
 ```
 {
   "repositories": [
@@ -104,6 +108,7 @@ php composer.phar update monolog/monolog [...]
     "juzi/RPCClient": "170622.x-dev"
   }
 }
+
 ```
 > ⚠️ "juzi/RPCClient"与库包中“name”一致
 
