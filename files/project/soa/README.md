@@ -34,7 +34,7 @@
 
 ```
 ### 客户端
-基于Swoole框架中rpc client类，通过[composer](technology/php/composer)管理
+基于Swoole框架中rpc client类，通过[composer](/technology/php/composer)管理
 
 ### 架构图
 ![image](attachment/images/soajiagou.png)
