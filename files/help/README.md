@@ -39,6 +39,7 @@
 1. 提交git
 1. 到 服务器上 git pull代码，部署好。
 
+## 相关
 > git clone下git库juzi-docute.git，编辑文件(markdown语法)，修改完成后提交git，Server上git pull。则部署完毕。
 
 主要目录结构：
