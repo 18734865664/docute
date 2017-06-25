@@ -55,3 +55,12 @@ php rpc_server.php start|stop|reload
 
 ## client端使用
 > git:ssh://[username]@111.203.201.131:8022/var/www/juzi-rpc-client.git
+
+1. \# mkdir script 
+1. \# curl -sS https://getcomposer.org/installer | php -- --install-dir=script
+1. 修改根下composer.json,加入rpcclient
+1. \# /data/php/bin/php script/composer.phar update
+1. require_once vendor/autoload.php文件
+1. 使用方法，见composer中示例test目录下
+
+
