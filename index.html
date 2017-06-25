@@ -44,6 +44,7 @@
         nav: [
             // 首页
             {title: '首页', path: '/'},
+            {title: '常用', path: '/commonly/'},
             {title:"项目",type:"dropdown",items:[
                 {title:"服务化",path:"/project/soa/"},
                 {title:"直播",path:"/project/live/"},
@@ -57,12 +58,14 @@
                 {title:"客户端",path:"/team/mobile-development/"}
             ]},
             {title:"技术",type:"dropdown",items:[
-                {title:"后端",path:"/backend-development/"},
-                {title:"前端",path:"/front-development/"},
-                {title:"测试",path:"/qa/"},
-                {title:"运维",path:"/ops/"},
-                {title:"客户端",path:"/mobile-development/"}
+                {type:"label", title:"PHP"},
+                {title:"composer",path:"/technology/php/composer.md"},
+                {type:"sep"},
+                {title:"Java",path:"/technology/java/"},
+                {title:"iOS",path:"/technology/ios/"},
+                {title:"Android",path:"/technology/android/"},
             ]},
+            {title: '暂存处', path: '/temp/'},
             {title: '帮助', path: '/help/'},
         ],
         icons: [{
