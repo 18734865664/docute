@@ -1,3 +1,7 @@
+---
+sidebar: false
+---
+
 # 橘子文档库
 ![image](attachment/images/juzilogo.jpg)
 ## 摘要

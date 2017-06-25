@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
-    <title>文档库 - 技术团队@橘子娱乐</title>
+    <title>技术团队@橘子娱乐</title>
     <!-- docute 的 CSS -->
     <link rel="stylesheet" href="/dist/docute.css">
     <style>
@@ -45,18 +45,30 @@
             // 首页
             {title: '首页', path: '/'},
             {title:"项目",type:"dropdown",items:[
-                {title:"服务化",path:"/soa/"},
-                {title:"直播",path:"/live/"},
-                {title:"反垃圾",path:"/antispam/"}
+                {title:"服务化",path:"/project/soa/"},
+                {title:"直播",path:"/project/live/"},
+                {title:"反垃圾",path:"/project/antispam/"}
             ]},
             {title:"团队",type:"dropdown",items:[
+                {title:"后端",path:"/team/backend-development/"},
+                {title:"前端",path:"/team/front-development/"},
+                {title:"测试",path:"/team/qa/"},
+                {title:"运维",path:"/team/ops/"},
+                {title:"客户端",path:"/team/mobile-development/"}
+            ]},
+            {title:"技术",type:"dropdown",items:[
                 {title:"后端",path:"/backend-development/"},
                 {title:"前端",path:"/front-development/"},
                 {title:"测试",path:"/qa/"},
                 {title:"运维",path:"/ops/"},
                 {title:"客户端",path:"/mobile-development/"}
             ]},
-        ]
+        ],
+        icons: [{
+            icon: 'github',
+            label: '',
+            link: 'https://github.com/happyjuzi'
+        }]
     });
 </script>
 </body>
