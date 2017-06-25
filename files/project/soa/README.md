@@ -17,8 +17,10 @@
 |-apps                      \\应用文件
     |-classes               \\RPC服务文件存放处
         |-Antispam.php      \\RPC服务类
+        |-...
     |-controllers           \\controller文件存放位置，仅用于测试程序或示例
         |-Testantispam.php  \\反垃圾测试示例程序
+        |-...
 |-cache                     \\存放缓存
 |-config                    \\配置文件
     |-common.php            \\基本配置
@@ -32,7 +34,7 @@
 
 ```
 ### 客户端
-基于Swoole框架中rpc client类，通过composer管理
+基于Swoole框架中rpc client类，通过[composer](technology/php/composer)管理
 
 ### 架构图
 ![image](attachment/images/soajiagou.png)
@@ -42,7 +44,7 @@
 
 ### 步骤
 1. git clone git:ssh://[username]@111.203.201.131:8022/var/www/juzi-rpc.git
-1. 修改config中status，运行模式，debug模式，守护模式
+1. 修改config目录中status.php，运行模式，debug模式，守护模式
 1. /path/php rpc_server.php start启动
 
 ### 启动/停止/重加载
