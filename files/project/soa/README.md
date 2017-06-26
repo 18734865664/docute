@@ -8,7 +8,7 @@
 
 ## 服务方案
 方案服务端，客户端完全基于Swoole实现RPC通讯
-> 参考:  [基于swoole的RPC方案](https://wiki.swoole.com/wiki/page/683.html) 不过文档很不完善
+> 参考:  [基于swoole的RPC方案](https://wiki.swoole.com/wiki/page/683.html) 不过文档又老，又不完善
 
 ### 服务端
 基于Swoole框架，主要目录结构
@@ -65,5 +65,7 @@ php rpc_server.php start|stop|reload
 1. 使用方法，见composer中示例test目录下
 
 > 注意⚠️
-修改composer.json,请参见test下composer.json.default文件
+1. 修改composer.json,请参见test下composer.json.default文件
+1. /test/test.php 是示例程序
+1. /test/composer.json.default 是接入项目的composer.json中接入本插件的示例
 
