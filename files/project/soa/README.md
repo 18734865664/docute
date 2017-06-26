@@ -54,7 +54,7 @@ php rpc_server.php start|stop|reload
 
 
 ## client端使用
-> git:ssh://[username]@111.203.201.131:8022/var/www/juzi-rpc-client.git
+> git:ssh://[username]@111.203.201.131:8022/var/www/juzi-php-vendor-rpcclient.git
 
 ### 步骤
 1. \# mkdir script 
