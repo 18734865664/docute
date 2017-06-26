@@ -65,6 +65,7 @@ php rpc_server.php start|stop|reload
 1. 使用方法，见composer中示例test目录下
 
 > 注意⚠️
+
 1. 修改composer.json,请参见test下composer.json.default文件
 1. /test/test.php 是示例程序
 1. /test/composer.json.default 是接入项目的composer.json中接入本插件的示例
