@@ -20,7 +20,7 @@
 目录结构介绍
 ```
 |-src                       // 是本程序源代码目录
-    |-swoolelib             // 从Swoole框架下抽出来的代码，除了修改namespace外，未做任何修改。为了以后便于升级也不应做任何其他修改。
+    |-swoolelib             // 从Swoole框架下抽出来的代码，除了修改namespace外，为了以后便于升级也不应做任何其他修改。
     |-lib_config.php        // 仅为test下test.php加载swoolelib类库使用
     |-rpcclient.php         // 封装处理rpc调用的class，主要开发集中在这里
 |-test                      // 是示例demo程序    
@@ -28,7 +28,7 @@
     |-composer.json.default // 在各个应用的根目录下composer.json文件加入本文件示例内容。
 ```
 
-## 注意⚠️
+## 注意
 参见test.php示例程序
 ```
 $rpc = new JuziRpcClient\rpclient($config);
