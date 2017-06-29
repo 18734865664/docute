@@ -18,7 +18,7 @@
 通过composer下载完代码后，进入/vendor/juzi/RPCClient中
 
 ## 注意
-> 参见test/test_antispam.php示例程序集成到自己的应用中。composer代码库是不允许在本地修改的。否则会造成无法升级兼容
+参见test/test_antispam.php示例程序集成到自己的应用中。composer代码库是不允许在本地修改的。否则会造成无法升级兼容
 
 > 注意⚠️
 
