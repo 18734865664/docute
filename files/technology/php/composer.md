@@ -113,8 +113,15 @@ php composer.phar update monolog/monolog [...]
 > ⚠️ "juzi/RPCClient"与库包中“name”一致
 
 > ⚠️ 后面的版本号"170622.x-dev"，需要注意
-如果是master分支，则为dev-master
-如果是feature分支则为“[分之名].x-dev”，x是技术要求，必须加composer才可以认
+
+如果是master分支，则为"dev-master"
+
+如果是feature分支则为"[分支名].x-dev，x是技术要求，必须加composer才可以认
+
+如果是标签tag则为"1.0.0",应该符合 'X.Y.Z' 或者 'vX.Y.Z' 的形式，-patch、-alpha、-beta 或 -RC 这些后缀是可选的
+
+关于指定版本，[参考](http://docs.phpcomposer.com/02-libraries.html#Specifying-the-version)
+
 
 
 ## composer项目版本控制
