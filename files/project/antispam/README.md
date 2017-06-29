@@ -29,7 +29,7 @@
 
 ⚠️
 1. 
-参见test/test_antispam.php示例程序集成到自己的应用中。composer代码库是不允许在本地修改的。否则会造成无法升级兼容
+参见test/test_antispam.php示例程序集成到自己的应用中。**composer代码库是不允许在本地修改的。否则会造成无法升级兼容**
 1. 配置 $config需要根据情况修改，并按照规则写到config中
 1. 注释中 //Todo 注明需要写日志的地方，建议写日志，记录taskID，便于需要时与"网易易盾"核对
 1. 参数格式完全参照"网易易盾"规则 [详见](https://www.163yun.com/docs/product/antispam/%E8%A7%84%E8%8C%83%E8%AF%B4%E6%98%8E)
