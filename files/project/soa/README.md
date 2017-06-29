@@ -84,7 +84,7 @@ php rpc_server.php start|stop|reload
 
 > 注意⚠️
 
-1. ⚠️请注意，**不允许在下载下来的composer代码直接修改**。composer单独维护升级。
+1. ⚠️请注意，**不允许在下载下来的composer代码直接修改**。composer做为代码库是**单独维护升级**。
 1. 修改composer.json,请参见test下composer.json.default文件
 1. /test/test.php 是示例程序
 1. /test/composer.json.default 是接入项目的composer.json中接入本插件的示例
