@@ -19,13 +19,20 @@
 
 目录结构介绍
 ```
-|-src                       // 是本程序源代码目录
-    |-swoolelib             // 从Swoole框架下抽出来的代码，除了修改namespace外，为了以后便于升级也不应做任何其他修改。
-    |-lib_config.php        // 仅为test下test.php加载swoolelib类库使用
-    |-rpcclient.php         // 封装处理rpc调用的class，主要开发集中在这里
-|-test                      // 是示例demo程序    
-    |-test.php              // 示例demo
-    |-composer.json.default // 在各个应用的根目录下composer.json文件加入本文件示例内容。
+|-src                           // 是本程序源代码目录
+    |-Swoolelib                 // 从Swoole框架下抽出来的代码，除了修改namespace外，为了以后便于升级也不应做任何其他修改。
+    |-JuziRpcClient             // rpcclient端集成代码，
+        |-Exception             // 自定义异常处理class
+            |-InvalidParam.php  // 参数无效异常
+            |-RpcSystem.php     // Client在与RPC服务端链接过程中返回的系统级异常，如IP拒绝访问，验证失败等
+            |-RpcService.php    // Client在调用具体RPC服务是，服务本身返回的异常，如易盾调用失败，传递参数不对
+        |-Antispam.php          // 反垃圾服务client端集成代码
+        |-Base.php              // 各个client端程序接口类，新加入的服务client程序需要实现此interface的函数
+        |-RpcClient.php         // 封装处理rpc调用的class，主要开发集中在这里
+    |-lib_config.php            // 仅为test下test.php加载swoolelib类库使用
+|-test                          // 是示例demo程序    
+    |-test_antispam.php         // 示例测试demo
+    |-composer.json.default     // 在各个应用的根目录下composer.json文件加入本文件示例内容。
 ```
 
 ## 注意

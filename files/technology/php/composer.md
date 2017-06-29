@@ -134,9 +134,11 @@ php composer.phar update monolog/monolog [...]
 1. 你可能要添加 vendor 到你的 .gitignore 文件中。 你不会希望将所有的代码都添加到你的版本库中。
 1. 提交/composer.json文件到git库中.
 1. 提交/composer.lock文件到git库中。
-1. 测试环境中，在"require"节点需要设置版本号
+1. 只是引用不修改composer插件代码可以直接使用正式版本，如"1.0.0"
+1. 如果调试composer插件代码，建议在"require"节点需要设置版本号
     1. 测试环境，设置为feature分支，如"170622.x-dev"。
-    1. 正式环境，设置为master分支，如"dev-master"。
+    1. 集成环境，设置为master分支，如"dev-master"。
+    1. 正式环境，设置为稳定版标签分支，如"1.0.0"
 
 
 橘子composer项目版本库命名规范
