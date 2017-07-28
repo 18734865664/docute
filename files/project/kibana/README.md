@@ -4,7 +4,7 @@
 - 查询账号： viewlog
 - 查询密码： viewlog
 ### [登陆界面](http://101.201.153.46)
-![登陆页面](attachment/images/kibana01.png)
+<img src="attachment/images/kibana01.png" width = "700" height = "300" alt="登陆页面" align=center />
 
 ## 现接入日志状况
 
