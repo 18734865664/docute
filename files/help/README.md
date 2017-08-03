@@ -4,7 +4,7 @@
 
 > git地址：ssh://[username]@[ip]:[port]/var/www/juzi-docute.git
 
-> Server：内网192.168.10.70:8033
+> web访问：http://192.168.10.70:8033
 
 1. git clone 本文档项目代码
 1. 在根目录下修改"index.html"设置导航。

@@ -39,6 +39,10 @@
 ### 架构图
 ![image](attachment/images/soajiagou.png)
 
+> 正式环境：IP:100.114.249.253 PORT:80
+
+> 测试环境：IP:101.200.194.158 PORT:7041
+
 ## Server端部署
 > git:ssh://[username]@111.203.201.131:8022/var/www/juzi-rpc.git
 
