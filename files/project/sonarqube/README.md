@@ -32,13 +32,15 @@ export PATH=$PATH:本地安装目录/bin/
 
 使用
 
-1、在项目根目录下创建sonar-project.properties文件
+1、在项目根目录下创建sonar-project.properties文件，复制以下内容到文件中，
+注意要根据属性含义结合项目实际进行修改，sonar.projectKey为唯一标识属性，
+必须设置
 ```
 # must be unique in a given SonarQube instance
-sonar.projectKey=my:project
+sonar.projectKey=api
 # this is the name and version displayed in the SonarQube UI. Was mandatory prior to SonarQube 6.1.
-sonar.projectName=My project
-sonar.projectVersion=1.0
+sonar.projectName=api
+sonar.projectVersion=3.8
  
 # Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.
 # This property is optional if sonar.modules is set. 
