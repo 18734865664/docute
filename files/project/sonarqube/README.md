@@ -56,7 +56,7 @@ sonar.sources=.
 sonar-scanner
 ```
 
-3、访问sonarqube管理平台（[http://192.168.10.153:9000](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)）查看分析结果
+3、访问sonarqube管理平台（[http://192.168.10.153:9000](http://192.168.10.153:9000)）查看分析结果
 
 <img src="attachment/images/sonarqube01.png" width = "700" height = "300" align=center />
 
