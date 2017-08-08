@@ -40,29 +40,29 @@ sonar-scanner -h
 在项目根目录下创建sonar-project.properties文件，参考以下内容到文件中，
 注意要根据属性含义结合项目实际进行修改，sonar.projectKey为唯一标识属性，必须设置
     
-    ```
-    # must be unique in a given SonarQube instance
-    sonar.projectKey=api
-    # this is the name and version displayed in the SonarQube UI. Was mandatory prior to SonarQube 6.1.
-    sonar.projectName=api
-    sonar.projectVersion=3.8
-     
-    # Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.
-    # This property is optional if sonar.modules is set. 
-    sonar.sources=.
-    #sonar.inclusions=./path1,./path2
-    #sonar.exclusions=./somepath
-     
-    # Encoding of the source code. Default is default system encoding
-    #sonar.sourceEncoding=UTF-8
-    ```
+```
+# must be unique in a given SonarQube instance
+sonar.projectKey=api
+# this is the name and version displayed in the SonarQube UI. Was mandatory prior to SonarQube 6.1.
+sonar.projectName=api
+sonar.projectVersion=3.8
+ 
+# Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.
+# This property is optional if sonar.modules is set. 
+sonar.sources=.
+#sonar.inclusions=./path1,./path2
+#sonar.exclusions=./somepath
+ 
+# Encoding of the source code. Default is default system encoding
+#sonar.sourceEncoding=UTF-8
+```
 
 #### 执行分析
 在项目根目录下运行以下命令进行分析
-    
-    ```
-    sonar-scanner
-    ```
+  
+```
+sonar-scanner
+```
 
 #### 查看分析
 访问sonarqube管理平台（[http://192.168.10.153:9000](http://192.168.10.153:9000)）查看分析结果
@@ -70,53 +70,53 @@ sonar-scanner -h
 #### 设置排除/包含
 项目的自定义排除/包含文件
 
-    <img src="attachment/images/sonarqube14.png" width = "700" height = "300" align=center />
+<img src="attachment/images/sonarqube14.png" width = "700" height = "300" align=center />
 
 #### 设置语言单元测试
 
-    <img src="attachment/images/sonarqube15.png" width = "700" height = "300" align=center />
+<img src="attachment/images/sonarqube15.png" width = "700" height = "300" align=center />
     
 ### 图示
-    - project项目列表界面
-     
-    <img src="attachment/images/sonarqube01.png" width = "700" height = "300" align=center />
-    
-    - 某项目界面
-    
-    <img src="attachment/images/sonarqube02.png" width = "700" height = "300" align=center />
-    
-    - 问题界面
-    
-    <img src="attachment/images/sonarqube03.png" width = "700" height = "300" align=center />
-    
-    <img src="attachment/images/sonarqube04.png" width = "700" height = "300" align=center />
-    
-    - 各个维度指标
-    
-    <img src="attachment/images/sonarqube05.png" width = "700" height = "300" align=center />
-    
-    - 代码列表
-    
-    <img src="attachment/images/sonarqube06.png" width = "700" height = "300" align=center />
-    
-    <img src="attachment/images/sonarqube07.png" width = "700" height = "300" align=center />
-    
-    - 项目管理员管理项目参数配置
-    
-    <img src="attachment/images/sonarqube08.png" width = "700" height = "300" align=center />
-    
-    - 规则
-    
-    <img src="attachment/images/sonarqube09.png" width = "700" height = "300" align=center />
-    
-    <img src="attachment/images/sonarqube10.png" width = "700" height = "300" align=center />
-    
-    <img src="attachment/images/sonarqube11.png" width = "700" height = "300" align=center />
-    
-    - 质量阀 
-    
-    <img src="attachment/images/sonarqube12.png" width = "700" height = "300" align=center />
-    
-    - 管理员
-    
-    <img src="attachment/images/sonarqube13.png" width = "700" height = "300" align=center />
+- project项目列表界面
+ 
+<img src="attachment/images/sonarqube01.png" width = "700" height = "300" align=center />
+
+- 某项目界面
+
+<img src="attachment/images/sonarqube02.png" width = "700" height = "300" align=center />
+
+- 问题界面
+
+<img src="attachment/images/sonarqube03.png" width = "700" height = "300" align=center />
+
+<img src="attachment/images/sonarqube04.png" width = "700" height = "300" align=center />
+
+- 各个维度指标
+
+<img src="attachment/images/sonarqube05.png" width = "700" height = "300" align=center />
+
+- 代码列表
+
+<img src="attachment/images/sonarqube06.png" width = "700" height = "300" align=center />
+
+<img src="attachment/images/sonarqube07.png" width = "700" height = "300" align=center />
+
+- 项目管理员管理项目参数配置
+
+<img src="attachment/images/sonarqube08.png" width = "700" height = "300" align=center />
+
+- 规则
+
+<img src="attachment/images/sonarqube09.png" width = "700" height = "300" align=center />
+
+<img src="attachment/images/sonarqube10.png" width = "700" height = "300" align=center />
+
+<img src="attachment/images/sonarqube11.png" width = "700" height = "300" align=center />
+
+- 质量阀 
+
+<img src="attachment/images/sonarqube12.png" width = "700" height = "300" align=center />
+
+- 管理员
+
+<img src="attachment/images/sonarqube13.png" width = "700" height = "300" align=center />
