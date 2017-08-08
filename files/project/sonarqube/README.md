@@ -62,7 +62,16 @@ sonar-scanner -h
     ```
 
 3. 访问sonarqube管理平台（[http://192.168.10.153:9000](http://192.168.10.153:9000)）查看分析结果
+
+4. 设置项目的自定义排除/包含文件
+
+    <img src="attachment/images/sonarqube14.png" width = "700" height = "300" align=center />
+
+5. 设置语言单元测试
+
+    <img src="attachment/images/sonarqube15.png" width = "700" height = "300" align=center />
     
+6. 图示
     - project项目列表界面
      
     <img src="attachment/images/sonarqube01.png" width = "700" height = "300" align=center />
