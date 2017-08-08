@@ -33,8 +33,8 @@ export PATH=$PATH:本地安装目录/bin/
 ### 使用
 
 1. 在项目根目录下创建sonar-project.properties文件，参考以下内容到文件中，
-注意要根据属性含义结合项目实际进行修改，sonar.projectKey为唯一标识属性，
-必须设置
+注意要根据属性含义结合项目实际进行修改，sonar.projectKey为唯一标识属性，必须设置
+
 ```
 # must be unique in a given SonarQube instance
 sonar.projectKey=api
@@ -51,7 +51,9 @@ sonar.sources=.
 # Encoding of the source code. Default is default system encoding
 #sonar.sourceEncoding=UTF-8
 ```
+
 2. 在项目根目录下运行以下命令进行分析
+
 ```
 sonar-scanner
 ```
