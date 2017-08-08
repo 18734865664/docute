@@ -35,7 +35,9 @@ sonar-scanner -h
 
 ### 使用
 
-1. 在项目根目录下创建sonar-project.properties文件，参考以下内容到文件中，
+#### 项目配置文件
+ 
+在项目根目录下创建sonar-project.properties文件，参考以下内容到文件中，
 注意要根据属性含义结合项目实际进行修改，sonar.projectKey为唯一标识属性，必须设置
     
     ```
@@ -55,23 +57,26 @@ sonar-scanner -h
     #sonar.sourceEncoding=UTF-8
     ```
 
-2. 在项目根目录下运行以下命令进行分析
+#### 执行分析
+在项目根目录下运行以下命令进行分析
     
     ```
     sonar-scanner
     ```
 
-3. 访问sonarqube管理平台（[http://192.168.10.153:9000](http://192.168.10.153:9000)）查看分析结果
+#### 查看分析
+访问sonarqube管理平台（[http://192.168.10.153:9000](http://192.168.10.153:9000)）查看分析结果
 
-4. 设置项目的自定义排除/包含文件
+#### 设置排除/包含
+项目的自定义排除/包含文件
 
     <img src="attachment/images/sonarqube14.png" width = "700" height = "300" align=center />
 
-5. 设置语言单元测试
+#### 设置语言单元测试
 
     <img src="attachment/images/sonarqube15.png" width = "700" height = "300" align=center />
     
-6. 图示
+### 图示
     - project项目列表界面
      
     <img src="attachment/images/sonarqube01.png" width = "700" height = "300" align=center />
