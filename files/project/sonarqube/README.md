@@ -11,7 +11,7 @@ sonar-scanner是sonarqube提供，配合sonarqube管理平台完成静态代码�
 其作用是根据配置规则(sonarqube管理平台设置)对代码进行扫描，然后将扫描结果提交到服务端(sonarqube管理平台)进行分析，
 最后在sonarqube管理平台以各维度展示分析结果。
 
-由于sonarqube管理平台（[http://192.168.10.153:9000](https://docs.sonarqube.org/display/SCAN/Analyzing+with+SonarQube+Scanner)）已在服务器上搭建共用，本文不介绍其安装。
+由于sonarqube管理平台（[http://192.168.10.153:9000](http://192.168.10.153:9000)）已在服务器上搭建共用，本文不介绍其安装。
 下文主要介绍客户端工具sonar-scanner的安装、使用以及管理平台查看相关分析结果等内容。
 
 ### 安装
