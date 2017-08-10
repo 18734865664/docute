@@ -10,6 +10,10 @@
 > sonarQube
 [http://192.168.10.153:9000](http://192.168.10.153:9000)
 
+### CodeReview系统
+> Phabricator
+[http://pha.happyjuzi.com:65001](http://pha.happyjuzi.com:65001)
+
 ### 线上应用日志
 > kibana
 [http://101.201.153.46/app/kibana](http://101.201.153.46/app/kibana)
