@@ -1,16 +1,16 @@
-# swagger后端书写规范
+# swagger注释说明
 
 <span id="参考文档"></span>
 > 参考文档
 [https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#infoObject](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#infoObject)
 
-### 安装swagger
+## 1. 安装swagger
 ```
 composer global require zircote/swagger-php
 ```
 global参数可以多个项目使用同一个swagger-php,并且不会在项目代码里引入swagger-php代码
 
-### 运行代码
+## 2. 运行代码
 写完项目代码注释后运行:
 ```
 ~/.composer/vendor/bin/swagger /data/ngx_openresty/nginx/html/forum-juzi/application --bootstrap /data/ngx_openresty/nginx/html/forum-juzi/application/swagger/constants.php -o /data/ngx_openresty/nginx/html/swagger/juzi-swagger/json/shequ/v4.0.json
@@ -20,25 +20,29 @@ global参数可以多个项目使用同一个swagger-php,并且不会在项目�
 - o参数值为最终生成json文件的目录,在juzi-swagger项目的json文件夹下,需要创建自己项目的文件夹,按版本命名
 
 
-## hello world
+## 3. hello world
 
 <span id="扫描文件夹"></span>
-### 新建目录swagger
-在项目的controller同级文件夹里新建swagger,将swagger单独定义的文件全放入
+### 新建项目目录
+在项目的controller同级文件夹里新建swagger文件夹,swagger单独定义的文件全放入
+```
+cd 项目contoller同级文件夹
+mkdir swagger
+```
 > 运行时会扫描指定文件夹的所有文件,注释是写到controller里的,所以最好能同级放
 
 <span id="定义常量"></span>
 ### 定义常量
-swagger/constants.php
 ```
 <?php
+vim swagger/constants.php
 define("API_HOST", (ini_get('yaf.environ') === "production") ? "api.app.happyjuzi.com" : "testapi.app.happyjuzi.com");
 define("VERSION", '4.0');
 ```
 
 ### 基本信息
-swagger/info.php
 ```
+vim swagger/info.php
 /**
  * @SWG\Swagger(
  *     schemes={"http"},

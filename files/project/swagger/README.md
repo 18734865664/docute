@@ -1,11 +1,11 @@
 # swagger
 ## 预览
-### 地址
-. 社区
+###地址
+. 社区预览地址:
 [http://101.200.194.158:8400/swagger-ui/dist/shequ.html](http://101.200.194.158:8400/swagger-ui/dist/shequ.html)
 
-. APP
-[http://101.200.194.158:8400/swagger-ui/dist/app.html](http://101.200.194.158:8400/swagger-ui/dist/app.html)
+. 社区json地址:
+[http://101.200.194.158:8400/juzi-swagger/json/shequ/v4.0.json](http://101.200.194.158:8400/juzi-swagger/json/shequ/v4.0.json)
 
 也可以将生成的json地址输入
 <img src="attachment/images/swagger_1.png" alt="登陆页面" align=center />
@@ -27,6 +27,9 @@ vim /data/ngx_openresty/nginx/html/swagger/swagger-ui/shequ.html
 const ui = SwaggerUIBundle({
     url: "http://petstore.swagger.io/v2/swagger.json",
 ```
-url修改成项目对应的json地址"http://101.200.194.158:8400/juzi-swagger/json/shequ/v4.0.json"
-
-## [后端书写规范](http://192.168.10.70:8033/#/project/swagger/backend-write)
+url修改成项目对应的json地址
+```
+const ui = SwaggerUIBundle({
+    url: "http://101.200.194.158:8400/juzi-swagger/json/shequ/v4.0.json",
+```
+## [注释书写](http://192.168.10.70:8033/#/project/swagger/backend-write)
