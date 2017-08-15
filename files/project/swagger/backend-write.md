@@ -1,14 +1,16 @@
+# swagger后端书写规范
+
 <span id="参考文档"></span>
 > 参考文档
 [https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#infoObject](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#infoObject)
 
-#### 安装swagger
+### 安装swagger
 ```
 composer global require zircote/swagger-php
 ```
 加入global参数可以多个项目使用同一个swagger-php,并且不会在项目代码里引入swagger-php
 
-#### 运行代码
+### 运行代码
 写完项目代码注释后运行:
 ```
 ~/.composer/vendor/bin/swagger /data/ngx_openresty/nginx/html/forum-juzi/application --bootstrap /data/ngx_openresty/nginx/html/forum-juzi/application/swagger/constants.php -o /data/ngx_openresty/nginx/html/juzi-swagger/json/shequ/v4.0.json
@@ -21,12 +23,12 @@ composer global require zircote/swagger-php
 ## hello world
 
 <span id="扫描文件夹"></span>
-#### 新建目录swagger
+### 新建目录swagger
 在项目的controller同级文件夹里新建swagger,将swagger单独定义的文件全放入
 > 运行时会扫描指定文件夹的所有文件,注释是写到controller里的,所以最好能同级放
 
 <span id="定义常量"></span>
-#### 定义常量
+### 定义常量
 swagger/constants.php
 ```
 <?php
@@ -34,7 +36,7 @@ define("API_HOST", (ini_get('yaf.environ') === "production") ? "api.app.happyjuz
 define("VERSION", '4.0');
 ```
 
-#### 基本信息
+### 基本信息
 swagger/info.php
 ```
 /**
@@ -67,7 +69,7 @@ swagger/info.php
 > 其它参照[参考文档](#参考文档)
 
 
-#### 项目代码中的注释
+### 项目代码中的注释
 - post请求
 ```
    /**
