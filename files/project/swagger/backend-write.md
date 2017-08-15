@@ -8,12 +8,12 @@
 ```
 composer global require zircote/swagger-php
 ```
-加入global参数可以多个项目使用同一个swagger-php,并且不会在项目代码里引入swagger-php
+global参数可以多个项目使用同一个swagger-php,并且不会在项目代码里引入swagger-php代码
 
 ### 运行代码
 写完项目代码注释后运行:
 ```
-~/.composer/vendor/bin/swagger /data/ngx_openresty/nginx/html/forum-juzi/application --bootstrap /data/ngx_openresty/nginx/html/forum-juzi/application/swagger/constants.php -o /data/ngx_openresty/nginx/html/juzi-swagger/json/shequ/v4.0.json
+~/.composer/vendor/bin/swagger /data/ngx_openresty/nginx/html/forum-juzi/application --bootstrap /data/ngx_openresty/nginx/html/forum-juzi/application/swagger/constants.php -o /data/ngx_openresty/nginx/html/swagger/juzi-swagger/json/shequ/v4.0.json
 ```
 - 参数1为需要扫描的[项目文件夹](#扫描文件夹)
 - bootstrap参数值为当前的[常量文件](#定义常量)
