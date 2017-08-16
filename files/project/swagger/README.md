@@ -1,6 +1,6 @@
 # swagger
 ## 预览
-###地址
+### 地址
 . 社区预览地址:
 [http://101.200.194.158:8400/swagger-ui/dist/shequ.html](http://101.200.194.158:8400/swagger-ui/dist/shequ.html)
 
@@ -19,8 +19,8 @@ git clone ssh://自己名字全拼@111.203.201.131:8022/var/www/juzi-swagger.git
 . UI预览
 ```
 git clone ssh://自己名字全拼@111.203.201.131:8022/var/www/swagger-ui.git
-cp /data/ngx_openresty/nginx/html/swagger/swagger-ui/index.html /data/ngx_openresty/nginx/html/swagger/swagger-ui/shequ.html
-vim /data/ngx_openresty/nginx/html/swagger/swagger-ui/shequ.html
+cp /data/ngx_openresty/nginx/html/swagger/swagger-ui/dist/index.html /data/ngx_openresty/nginx/html/swagger/swagger-ui/dist/shequ.html
+vim /data/ngx_openresty/nginx/html/swagger/swagger-ui/dist/shequ.html
 ```
 将shequ.html中的
 ```

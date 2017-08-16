@@ -40,6 +40,79 @@ define("API_HOST", (ini_get('yaf.environ') === "production") ? "api.app.happyjuz
 define("VERSION", '4.0');
 ```
 
+### 数据类型(array\string\integer)
+- array —— item
+```
+/*
+ *
+ *  @SWG\Property(
+ *          property="list",
+ *          type="array",
+ *          @SWG\Items(ref="#/definitions/emoticon")
+ *  )
+ *
+ * @SWG\Definition(
+ *     definition="emoticon",
+ *     @SWG\Property(
+ *          property="id",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *     @SWG\Property(
+ *        property="url",
+ *        type="string"
+ *     ),
+ *     @SWG\Property(
+ *          property="thumb",
+ *          type="string"
+ *      ),
+ *     @SWG\Property(
+ *          property="thumb_jpg",
+ *          type="string"
+ *     ),
+ *     @SWG\Property(
+ *          property="width",
+ *          type="integer",
+ *          format="int32"
+ *     ),
+ *     @SWG\Property(
+ *          property="height",
+ *          type="integer",
+ *         format="int32"
+ *     ),
+ *     @SWG\Property(
+ *          property="html",
+ *          type="string"
+ *      )
+ * )
+ */
+```
+- string
+```
+/*
+ *     @SWG\Property(
+ *          property="thumb_jpg",
+ *          type="string"
+ *     )
+ */
+```
+- integer —— format: int32/int64
+```
+/*
+ *     @SWG\Property(
+ *          property="height",
+ *          type="integer",
+ *         format="int32"
+ *     ),
+ */
+```
+- object
+```
+/*
+ * @SWG\Property(property="data", type="object", ref="#/definitions/emoticon-list")
+ */
+```
+
 ### 基本信息
 ```
 vim swagger/info.php
@@ -72,9 +145,88 @@ vim swagger/info.php
 
 > 其它参照[参考文档](#参考文档)
 
+### 抽取公共部分
+抽取出输入输出共同的部分,单独定义为definition
+. 公共输入
+```
+/**
+ * @SWG\Definition(
+ *      definition="base-input",
+ *      required={"ver", "uid"},
+ *      @SWG\Property(
+ *         property="ver",
+ *         type="string",
+ *         default=VERSION,
+ *         example=VERSION
+ *      ),
+ *      @SWG\Property(
+ *         property="uid",
+ *         type="integer",
+ *         format="int64",
+ *         default="4087386321629213",
+ *         example="4087386321629213"
+ *      ),
+ *      @SWG\Property(
+ *         property="accesstoken",
+ *         type="string",
+ *         default="a067c7405bffaf2bffea5a5d999f82f0",
+ *         example="a067c7405bffaf2bffea5a5d999f82f0"
+ *      )
+ * )
+ */
+```
+使用示例
+```
+/*
+ * @SWG\Definition(
+ *      definition="emoticon-create-input",
+ *      allOf={
+ *          @SWG\Schema(ref="#/definitions/base-input"),
+ *          @SWG\Schema(
+ *              required={"img"},
+ *              @SWG\Property(
+ *                  property="img",
+ *                  type="string",
+ *                  default="http://images11.app.happyjuzi.com/content/201708/09/598a92fda694e.gif",
+ *                  example="http://images11.app.happyjuzi.com/content/201708/09/598a92fda694e.gif"
+ *              )
+ *         )
+ *     }
+ * )
+ */
+```
+. 公共输出
+```
+/**
+ * @SWG\Definition(
+ *         definition="base-response",
+ *         required={"code", "msg"},
+ *         @SWG\Property(
+ *             property="code",
+ *             type="integer",
+ *             format="int32"
+ *         ),
+ *         @SWG\Property(
+ *             property="msg",
+ *             type="string"
+ *         )
+ * )
+ */
+```
+使用示例
+
+```
+/*
+ * @SWG\Response(
+ *   response="error",
+ *   description="缺少参数",
+ *   @SWG\Schema(ref="#/definitions/base-response")
+ * )
+ */
+```
 
 ### 项目代码中的注释
-- post请求
+#### post请求
 ```
    /**
      * @SWG\Post(
@@ -100,13 +252,13 @@ vim swagger/info.php
 - tags —— 标签,会在预览页面相应标签里出现,可添加多个,以‘,’隔开
 - description —— 简介
 - operationId —— 文档里唯一标识此操作
-- @SWG\Parameter —— 输入的参数,后面[详细介绍](#post请求)
+- @SWG\Parameter —— 输入的参数,@SWG\Schema后面[详细介绍](#@SWG\Schema)
 - parameter里in有值
 1. body —— post中body里id=12
 2. query —— index.php?id=12
 3. path —— url里直接/id/12
 
-- get请求
+#### get请求
 ```
 /**
      * @SWG\Get(
@@ -126,16 +278,6 @@ vim swagger/info.php
      */
 ```
 
-
-### get请求
-```
-
-```
-
-<span id = "jump"></span>
-### post请求
-
-
 ### 基本概念
 - definition
 - parameter
@@ -143,13 +285,38 @@ vim swagger/info.php
 - response
 - item
 
-### 类型(array\string\integer)
-- array —— item
-- string
-- integer —— format: int32/int64
-
 ### 基本写法
-- @SWG\Info
+
+<span id="@SWG\Schema"></span>
+#### @SWG\Schema
+. post里参数
+```
+@SWG\Schema(ref="#/definitions/emoticon-create-input")
+```
+其中ref里引用definitions中的emoticon-create-input,
+```
+ /**
+ * @SWG\Definition(
+ *      definition="emoticon-create-input",
+ *      allOf={
+ *          @SWG\Schema(ref="#/definitions/base-input"),
+ *          @SWG\Schema(
+ *              required={"img"},
+ *              @SWG\Property(
+ *                  property="img",
+ *                  type="string",
+ *                  default="http://images11.app.happyjuzi.com/content/201708/09/598a92fda694e.gif",
+ *                  example="http://images11.app.happyjuzi.com/content/201708/09/598a92fda694e.gif"
+ *              )
+ *         )
+ *     }
+ * )
+ */
+```
+- definition 表示名字
+- allOf表示由下面几个一起组成
+
+
 - @SWG\Schame
 - @SWG\Response
 - @SWG\Get
