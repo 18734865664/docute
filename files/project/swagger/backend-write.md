@@ -20,6 +20,7 @@ global参数可以多个项目使用同一个swagger-php,并且不会在项目�
 - o参数值为最终生成json文件的目录,在juzi-swagger项目的json文件夹下,需要创建自己项目的文件夹,按版本命名
 
 ## 基本概念
+
 ### meta
 - @SWG\Swagger 最外层meta,一定要有
 - @SWG\Info 基本信息,一定要有
@@ -34,11 +35,10 @@ global参数可以多个项目使用同一个swagger-php,并且不会在项目�
 - @SWG\Get get请求
 - @SWG\Post post请求
 
-> 经常用到ref,后面跟着#/Path Item Object
-
 ### 数据类型(array\string\integer\object)
 <img src="attachment/images/swagger-data-type.png" alt="数据类型" align=center/>
 - array —— item
+
 ```
 /*
  *  @SWG\Property(
@@ -84,6 +84,7 @@ global参数可以多个项目使用同一个swagger-php,并且不会在项目�
  */
 ```
 - string
+
 ```
 /*
  *     @SWG\Property(
@@ -93,6 +94,7 @@ global参数可以多个项目使用同一个swagger-php,并且不会在项目�
  */
 ```
 - integer —— format: int32/int64
+
 ```
 /*
  *     @SWG\Property(
@@ -102,14 +104,18 @@ global参数可以多个项目使用同一个swagger-php,并且不会在项目�
  *     ),
  */
 ```
+
 - object
+
 ```
 /*
  * @SWG\Property(property="data", type="object", ref="#/definitions/emoticon-list")
  */
 ```
+
 ### 标签
-可定义也可不定义,定义后按定义先后顺序显示,未定义按出现顺序排序
+可定义也可不定义,定义后按定义先后顺序显示,未定义按分析json文件的工具规则顺序排序
+
 ```
 /*
  * @SWG\Tag(
@@ -135,6 +141,7 @@ cd 项目contoller同级文件夹
 mkdir swagger
 ```
 > 运行时会扫描指定文件夹的所有文件,注释是写到controller里的,所以最好能同级放
+> 最好是response/definition/parameter-in-query/parameter-in-body等文件分开,易于管理
 
 <span id="定义常量"></span>
 ### 定义常量
@@ -313,6 +320,7 @@ vim swagger/info.php
   *      )
   * )
   *  3) 最终emoticon的定义
+  * <span id="emoticon的定义"></span>
   * @SWG\Definition(
    *     definition="emoticon",
    *     @SWG\Property(
@@ -407,8 +415,67 @@ vim swagger/info.php
      * )
      */
 ```
-
-
+input
+```
+/**
+ * @SWG\Definition(
+ *      definition="emoticon-list-input",
+ *      allOf={
+ *          @SWG\Schema(ref="#/definitions/base-input"),
+ *          @SWG\Schema(
+ *              @SWG\Property(
+ *                  property="ts",
+ *                  type="integer",
+ *              )
+ *         )
+ *     }
+ * )
+ */
+```
+response
+```
+/*
+ * @SWG\Response(
+ *    response="emoticon-list",
+ *    description="表情包列表",
+ *    @SWG\Schema(ref="#/definitions/emoticon-list-definition")
+ * )
+ *
+ * @SWG\Definition(
+ *     definition="emoticon-list-definition",
+ *     allOf={
+ *          @SWG\Schema(ref="#/definitions/base-response"),
+ *          @SWG\Schema(
+ *              required={"data"},
+ *              @SWG\Property(property="data", type="object", ref="#/definitions/emoticon-list")
+ *         )
+ *     }
+ * )
+ */
+ ```
+ ```
+/*
+ * @SWG\Definition(
+ *     definition="emoticon-list",
+ *     @SWG\Property(
+ *          property="ts",
+ *          type="integer",
+ *          format="int32"
+ *      ),
+ *     @SWG\Property(
+ *          property="total",
+ *          type="integer",
+ *          format="int32"
+ *     ),
+ *     @SWG\Property(
+ *          property="list",
+ *          type="array",
+ *          @SWG\Items(ref="#/definitions/emoticon")
+ *      )
+ * )
+ */
+```
+> emoticon定义见[emoticon的定义](#emoticon的定义)
 
 
 所有参数都以ref形式在php真实代码中出现
