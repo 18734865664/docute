@@ -26,11 +26,11 @@ global参数可以多个项目使用同一个swagger-php,并且不会在项目�
 - @SWG\Info 基本信息,一定要有
 - @SWG\Tag 标签
 - @SWG\ExternalDocumentation 定义外部文档url
-- @SWG\Definition 定义对象
+- @SWG\Definition 定义对象,使用ref="#/definitions/名字"
 - @SWG\Parameter 参数
 - @SWG\Property Definition的属性
 - @SWG\Response 返回值
-- @SWG\Item 数组里的item
+- @SWG\Items 数组里的item
 - @SWG\Schame 引用其它值
 - @SWG\Get get请求
 - @SWG\Post post请求
@@ -361,6 +361,7 @@ vim swagger/info.php
 ### 项目代码中的注释
 <span id="post请求"></span>
 #### post请求
+在项目代码中添加注释
 ```
    /**
      * @SWG\Post(
@@ -397,6 +398,7 @@ vim swagger/info.php
 
 <span id="get请求"></span>
 #### get请求
+在项目代码中添加注释
 ```
 /**
      * @SWG\Get(
@@ -476,17 +478,3 @@ response
  */
 ```
 > emoticon定义见[emoticon的定义](#emoticon的定义)
-
-
-所有参数都以ref形式在php真实代码中出现
-
-## get方法参数设置
-
-## post方法参数设置
-
-将公共部分弄成base-reaponse的definition
-
-## 返回值参数设置
-
-##
-
