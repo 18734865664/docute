@@ -19,36 +19,32 @@ global参数可以多个项目使用同一个swagger-php,并且不会在项目�
 - bootstrap参数值为当前的[常量文件](#定义常量)
 - o参数值为最终生成json文件的目录,在juzi-swagger项目的json文件夹下,需要创建自己项目的文件夹,按版本命名
 
+## 基本概念
+### meta
+- @SWG\Swagger 最外层meta,一定要有
+- @SWG\Info 基本信息,一定要有
+- @SWG\Tag 标签
+- @SWG\ExternalDocumentation 定义外部文档url
+- @SWG\Definition 定义对象
+- @SWG\Parameter 参数
+- @SWG\Property Definition的属性
+- @SWG\Response 返回值
+- @SWG\Item 数组里的item
+- @SWG\Schame 引用其它值
+- @SWG\Get get请求
+- @SWG\Post post请求
 
-## 3. hello world
+> 经常用到ref,后面跟着#/Path Item Object
 
-<span id="扫描文件夹"></span>
-### 新建项目目录
-在项目的controller同级文件夹里新建swagger文件夹,swagger单独定义的文件全放入
-```
-cd 项目contoller同级文件夹
-mkdir swagger
-```
-> 运行时会扫描指定文件夹的所有文件,注释是写到controller里的,所以最好能同级放
-
-<span id="定义常量"></span>
-### 定义常量
-```
-<?php
-vim swagger/constants.php
-define("API_HOST", (ini_get('yaf.environ') === "production") ? "api.app.happyjuzi.com" : "testapi.app.happyjuzi.com");
-define("VERSION", '4.0');
-```
-
-### 数据类型(array\string\integer)
+### 数据类型(array\string\integer\object)
+<img src="attachment/images/swagger-data-type.png" alt="数据类型" align=center/>
 - array —— item
 ```
 /*
- *
  *  @SWG\Property(
- *          property="list",
- *          type="array",
- *          @SWG\Items(ref="#/definitions/emoticon")
+ *      property="list",
+ *      type="array",
+ *      @SWG\Items(ref="#/definitions/emoticon")
  *  )
  *
  * @SWG\Definition(
@@ -112,8 +108,45 @@ define("VERSION", '4.0');
  * @SWG\Property(property="data", type="object", ref="#/definitions/emoticon-list")
  */
 ```
+### 标签
+可定义也可不定义,定义后按定义先后顺序显示,未定义按出现顺序排序
+```
+/*
+ * @SWG\Tag(
+ *   name="postings",
+ *   description="关于帖子的操作",
+ *   @SWG\ExternalDocumentation(
+ *     description="更多关于帖子操作,@SWG\ExternalDocumentation用于定义额外的链接,可不写",
+ *     url="http://swagger.io"
+ *   )
+ * )
+ */
+```
+<p class="warning">可用于定义版本,但是标签之间没有承继关系,版本下就不能按照帖子评论等进行归类,版本下标签不能直接看到全部的api,需要往下版本查看继承的方法</p>
+
+
+## 3. hello world
+
+<span id="扫描文件夹"></span>
+### 新建项目目录
+在项目的controller同级文件夹里新建swagger文件夹,swagger单独定义的文件全放入
+```
+cd 项目contoller同级文件夹
+mkdir swagger
+```
+> 运行时会扫描指定文件夹的所有文件,注释是写到controller里的,所以最好能同级放
+
+<span id="定义常量"></span>
+### 定义常量
+```
+<?php
+vim swagger/constants.php
+define("API_HOST", (ini_get('yaf.environ') === "production") ? "api.app.happyjuzi.com" : "testapi.app.happyjuzi.com");
+define("VERSION", '4.0');
+```
 
 ### 基本信息
+一定要有一个info
 ```
 vim swagger/info.php
 /**
@@ -186,15 +219,15 @@ vim swagger/info.php
  *              required={"img"},
  *              @SWG\Property(
  *                  property="img",
- *                  type="string",
- *                  default="http://images11.app.happyjuzi.com/content/201708/09/598a92fda694e.gif",
- *                  example="http://images11.app.happyjuzi.com/content/201708/09/598a92fda694e.gif"
+ *                  type="string"
  *              )
  *         )
  *     }
  * )
  */
 ```
+> emoticon-create-input使用参见[post请求](#post请求)
+
 . 公共输出
 ```
 /**
@@ -215,6 +248,7 @@ vim swagger/info.php
 ```
 使用示例
 
+1. 最简单的使用,返回参数与base-response一样
 ```
 /*
  * @SWG\Response(
@@ -223,16 +257,108 @@ vim swagger/info.php
  *   @SWG\Schema(ref="#/definitions/base-response")
  * )
  */
+ ```
+
+2. 返回参数还包含其它值
+#### 最终结果
+```
+{
+    "msg": "操作成功",
+    "data": {
+        "ts": 1499332851,
+        "info": {
+            "id": 15,
+            "url": "http://images11.app.happyjuzi.com/content/201608/02/57a083805548c.gif!ac1.gif.webp",
+            "thumb": "http://images11.app.happyjuzi.com/content/201608/02/57a083805548c.gif!th.gif",
+            "thumb_jpg": "http://images11.app.happyjuzi.com/content/201608/02/57a083805548c.gif!th.jpg",
+            "width": 360,
+            "height": 270,
+            "html": "<p><img class=\"load-img dom-img\" data-original=\"http://images11.app.happyjuzi.com/content/201608/02/57a083805548c.gif!ac1.gif.webp\" width=\"360\" height=\"270\" src=\"http://cdn.happyjuzi.com/static-frame/public/img/kong.png\"/></p>"
+        }
+    },
+    "code": 1
+}
+```
+#### swagger代码
+ ```
+ /*
+ * @SWG\Response(
+ *    response="create-emoticon",
+ *    description="添加表情包返回值",
+ *    @SWG\Schema(ref="#/definitions/emoticon-create-definition")
+ * )
+ *  1) 定义包含base-response与一个data字段,data又是引用了emoticon-data
+ * @SWG\Definition(
+ *     definition="emoticon-create-definition",
+ *     allOf={
+ *          @SWG\Schema(ref="#/definitions/base-response"),
+ *          @SWG\Schema(
+ *              required={"data"},
+ *              @SWG\Property(property="data", type="object", ref="#/definitions/emoticon-data")
+ *         )
+ *     }
+ * )
+ *  2) emoticon=data的定义,这个结构又包含了emoticon的定义
+ * @SWG\Definition(
+  *     definition="emoticon-data",
+  *     @SWG\Property(
+  *          property="ts",
+  *          type="integer",
+  *          format="int32"
+  *      ),
+  *     @SWG\Property(
+  *          property="info",
+  *          type="object",
+  *          ref="#/definitions/emoticon"
+  *      )
+  * )
+  *  3) 最终emoticon的定义
+  * @SWG\Definition(
+   *     definition="emoticon",
+   *     @SWG\Property(
+   *          property="id",
+   *          type="integer",
+   *          format="int32"
+   *      ),
+   *     @SWG\Property(
+   *        property="url",
+   *        type="string"
+   *     ),
+   *     @SWG\Property(
+   *          property="thumb",
+   *          type="string"
+   *      ),
+   *     @SWG\Property(
+   *          property="thumb_jpg",
+   *          type="string"
+   *     ),
+   *     @SWG\Property(
+   *          property="width",
+   *          type="integer",
+   *          format="int32"
+   *     ),
+   *     @SWG\Property(
+   *          property="height",
+   *          type="integer",
+   *         format="int32"
+   *     ),
+   *     @SWG\Property(
+   *          property="html",
+   *          type="string"
+   *      )
+   * )
+ */
 ```
 
 ### 项目代码中的注释
+<span id="post请求"></span>
 #### post请求
 ```
    /**
      * @SWG\Post(
      *   path="/emoticon/create",
-     *   summary="add emoticon",
-     *   tags={"postings"},
+     *   summary="添加表情包",
+     *   tags={"v4.0", "postings"},
      *   description="添加表情,第一次添加正常返回,第二次添加返回已操作",
      *   operationId="addEmoticon",
      *   @SWG\Parameter(
@@ -253,22 +379,26 @@ vim swagger/info.php
 - description —— 简介
 - operationId —— 文档里唯一标识此操作
 - @SWG\Parameter —— 输入的参数,@SWG\Schema后面[详细介绍](#@SWG\Schema)
-- parameter里in有值
+- @SWG\Parameter里in有值
 1. body —— post中body里id=12
 2. query —— index.php?id=12
 3. path —— url里直接/id/12
+- @SWG\Response
+1. response值:default或者其它状态码
+2. ref为引用定义好的response
 
+<span id="get请求"></span>
 #### get请求
 ```
 /**
      * @SWG\Get(
      *   path="/emoticon/emtlist",
-     *   summary="list of emoticon",
+     *   summary="表情包列表",
      *   tags={"postings"},
      *   description="表情包列表.ts与最后一次返回ts不同时返回所有的表情包;如果与最后一次ts相同则返回20010,表示不需要更新app端",
      *   operationId="emtlist",
      *   @SWG\Parameter(
-     *        name="body",
+     *        name="query",
      *        in="query",
      *        ref="#/definitions/emoticon-list-input"
      *   ),
@@ -278,49 +408,7 @@ vim swagger/info.php
      */
 ```
 
-### 基本概念
-- definition
-- parameter
-- property
-- response
-- item
 
-### 基本写法
-
-<span id="@SWG\Schema"></span>
-#### @SWG\Schema
-. post里参数
-```
-@SWG\Schema(ref="#/definitions/emoticon-create-input")
-```
-其中ref里引用definitions中的emoticon-create-input,
-```
- /**
- * @SWG\Definition(
- *      definition="emoticon-create-input",
- *      allOf={
- *          @SWG\Schema(ref="#/definitions/base-input"),
- *          @SWG\Schema(
- *              required={"img"},
- *              @SWG\Property(
- *                  property="img",
- *                  type="string",
- *                  default="http://images11.app.happyjuzi.com/content/201708/09/598a92fda694e.gif",
- *                  example="http://images11.app.happyjuzi.com/content/201708/09/598a92fda694e.gif"
- *              )
- *         )
- *     }
- * )
- */
-```
-- definition 表示名字
-- allOf表示由下面几个一起组成
-
-
-- @SWG\Schame
-- @SWG\Response
-- @SWG\Get
-- @SWG\Post
 
 
 所有参数都以ref形式在php真实代码中出现
