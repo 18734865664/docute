@@ -146,14 +146,16 @@ mkdir swagger
 <span id="定义常量"></span>
 ### 定义常量
 ```
-<?php
 vim swagger/constants.php
+<?php
 define("API_HOST", (ini_get('yaf.environ') === "production") ? "api.app.happyjuzi.com" : "testapi.app.happyjuzi.com");
 define("VERSION", '4.0');
+define("UID", '4087386321629213');
+define("ACCESSTOKEN", 'a067c7405bffaf2bffea5a5d999f82f0');
+
 ```
 
 ### 基本信息
-一定要有一个info
 ```
 vim swagger/info.php
 /**
@@ -187,53 +189,6 @@ vim swagger/info.php
 
 ### 抽取公共部分
 抽取出输入输出共同的部分,单独定义为definition
-. 公共输入
-```
-/**
- * @SWG\Definition(
- *      definition="base-input",
- *      required={"ver", "uid"},
- *      @SWG\Property(
- *         property="ver",
- *         type="string",
- *         default=VERSION,
- *         example=VERSION
- *      ),
- *      @SWG\Property(
- *         property="uid",
- *         type="integer",
- *         format="int64",
- *         default="4087386321629213",
- *         example="4087386321629213"
- *      ),
- *      @SWG\Property(
- *         property="accesstoken",
- *         type="string",
- *         default="a067c7405bffaf2bffea5a5d999f82f0",
- *         example="a067c7405bffaf2bffea5a5d999f82f0"
- *      )
- * )
- */
-```
-使用示例
-```
-/*
- * @SWG\Definition(
- *      definition="emoticon-create-input",
- *      allOf={
- *          @SWG\Schema(ref="#/definitions/base-input"),
- *          @SWG\Schema(
- *              required={"img"},
- *              @SWG\Property(
- *                  property="img",
- *                  type="string"
- *              )
- *         )
- *     }
- * )
- */
-```
-> emoticon-create-input使用参见[post请求](#post请求)
 
 . 公共输出
 ```
@@ -363,35 +318,33 @@ vim swagger/info.php
 #### post请求
 在项目代码中添加注释
 ```
-   /**
-     * @SWG\Post(
-     *   path="/emoticon/create",
-     *   summary="添加表情包",
-     *   tags={"v4.0", "postings"},
-     *   description="添加表情,第一次添加正常返回,第二次添加返回已操作",
-     *   operationId="addEmoticon",
-     *   @SWG\Parameter(
-     *         name="body",
-     *         in="body",
-     *         description="添加表情",
-     *         required=true,
-     *         @SWG\Schema(ref="#/definitions/emoticon-create-input"),
-     *   ),
-     *   @SWG\Response(response="default", ref="#/responses/create-emoticon"),
-     *   @SWG\Response(response="200", ref="#/responses/error")
-     * )
-     */
+     /**
+      * @SWG\Post(
+      *   path="/emoticon/create",
+      *   tags={"ver4.0"},
+      *   summary="添加表情包",
+      *   description="添加表情包",
+      *   operationId="addEmoticon",
+      *   @SWG\Parameter(name="ver",in="formData",description="ver",required=true,type="string",default=VERSION),
+      *   @SWG\Parameter(name="uid",in="formData",description="uid",required=true,type="integer",format="int64",default=UID),
+      *   @SWG\Parameter(name="accesstoken",in="formData",description="user access token",required=true,type="string",default=ACCESSTOKEN),
+      *   @SWG\Parameter(name="img",in="formData",description="emoticon img",required=true,type="string",default="http://images11.app.happyjuzi.com/content/201606/04/575272425d0f1.gif!ac1.gif.webp"),
+      *   @SWG\Response(response="default", ref="#/responses/create-emoticon"),
+      *   @SWG\Response(response="200", ref="#/responses/error")
+      * )
+      */
 ```
 - path —— 访问路径
-- summary —— 总结
+- summary —— 操作概要,建议少于120
 - tags —— 标签,会在预览页面相应标签里出现,可添加多个,以‘,’隔开
-- description —— 简介
+- description —— 详情介绍
 - operationId —— 文档里唯一标识此操作
 - @SWG\Parameter —— 输入的参数,@SWG\Schema后面[详细介绍](#@SWG\Schema)
 - @SWG\Parameter里in有值
 1. body —— post中body里id=12
 2. query —— index.php?id=12
 3. path —— url里直接/id/12
+4. formData —— 表单形式
 - @SWG\Response
 1. response值:default或者其它状态码
 2. ref为引用定义好的response
@@ -400,39 +353,21 @@ vim swagger/info.php
 #### get请求
 在项目代码中添加注释
 ```
-/**
+   /**
      * @SWG\Get(
      *   path="/emoticon/emtlist",
-     *   summary="表情包列表",
-     *   tags={"postings"},
+     *   summary="list of emoticon",
+     *   tags={"ver4.0"},
      *   description="表情包列表.ts与最后一次返回ts不同时返回所有的表情包;如果与最后一次ts相同则返回20010,表示不需要更新app端",
      *   operationId="emtlist",
-     *   @SWG\Parameter(
-     *        name="query",
-     *        in="query",
-     *        ref="#/definitions/emoticon-list-input"
-     *   ),
+     *   @SWG\Parameter(name="ver",in="query",description="ver",required=true,type="string",default=VERSION),
+     *   @SWG\Parameter(name="uid",in="query",description="uid",required=true,type="integer",format="int64",default=UID),
+     *   @SWG\Parameter(name="accesstoken",in="query",description="user access token",required=true,type="string",default=ACCESSTOKEN),
+     *   @SWG\Parameter(name="ts",in="query",description="Tags to filter by",required=true,type="integer",default="0"),
      *   @SWG\Response(response="default", ref="#/responses/emoticon-list"),
      *   @SWG\Response(response="200", ref="#/responses/error")
      * )
      */
-```
-input
-```
-/**
- * @SWG\Definition(
- *      definition="emoticon-list-input",
- *      allOf={
- *          @SWG\Schema(ref="#/definitions/base-input"),
- *          @SWG\Schema(
- *              @SWG\Property(
- *                  property="ts",
- *                  type="integer",
- *              )
- *         )
- *     }
- * )
- */
 ```
 response
 ```
