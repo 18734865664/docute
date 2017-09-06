@@ -5,7 +5,7 @@
 [http://101.200.194.158:8400/swagger-ui/dist/shequ.html](http://101.200.194.158:8400/swagger-ui/dist/shequ.html)
 
 . 社区json地址:
-[http://101.200.194.158:8400/juzi-swagger/json/shequ/v4.0.json](http://101.200.194.158:8400/juzi-swagger/json/shequ/v4.0.json)
+[http://101.200.194.158:8400/juzi-swagger/json/shequ/shequ.json](http://101.200.194.158:8400/juzi-swagger/json/shequ/shequ.json)
 
 也可以将生成的json地址输入
 <img src="attachment/images/swagger_1.png" alt="登陆页面" align=center />

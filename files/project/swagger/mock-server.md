@@ -14,3 +14,4 @@ swaggerFile: path.join('http://101.200.194.158:8400/juzi-swagger/json/shequ/', '
 - [https://www.npmjs.com/package/swagger-mock-api](https://www.npmjs.com/package/swagger-mock-api)
 - [grunt](http://www.jianshu.com/p/a339f2dc3823)
 - [输出值chance](http://chancejs.com/#timestamp)
+- [grunt](https://gruntjs.com/getting-started#preparing-a-new-grunt-project)
