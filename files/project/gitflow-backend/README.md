@@ -4,11 +4,11 @@
  - ![image](attachment/images/GIT工作流1.png)
  - 适用于API、社区、PC站、M站等
 ### 分支说明
- - Master `主分支、受保护分支、管理员可操作`
+  - Master `主分支、受保护分支、管理员可操作`
 
   > 存放随时可供在生产环境中部署的代码。当项目开发结束并结测，产生了一份新的可供部署的代码时，Master分支上的代码会被更新。同时每一次上线添加对应的版本号标签（TAG）
  
- - Develop `主分支、受保护分支、管理员可操作`
+  - Develop `主分支、受保护分支、管理员可操作`
 
   > 保存当前最新开发成果的分支
   
@@ -43,12 +43,22 @@
 ## 多版本并行工作流
 
  - ![image](attachment/images/GIT工作流2.png)
+
  - 适用于CMS等
+
 ### 说明
- - Develop根据分支并行情况拆分为多个主干分支。
- > 如CMS拆分为develop-app & delelop-web
- - Release分支从相应的Develop分支派生而来，可对应多个测试环境。
- - Release分支上线时，除了合并到master分支外、需要同时合并到多个Develop分支。
- - Hotfix分支上线时，除了合并到master分支外、同样需要合并到多个Develop分支。
- - Feature分支从对应的Develop分支派生而来、并将合并回对应的Develop分支。
- - Bugfix分支从对应的Release分支派生而来、并将合并回对应的Release分支。
+
+  - Develop根据分支并行情况拆分为多个主干分支。
+
+  > 如CMS拆分为develop-app & delelop-web
+
+  - Release分支从相应的Develop分支派生而来，可对应多个测试环境。
+
+  - Release分支上线时，除了合并到master分支外、需要同时合并到多个Develop分支。
+
+  - Hotfix分支上线时，除了合并到master分支外、同样需要合并到多个Develop分支。
+
+  - Feature分支从对应的Develop分支派生而来、并将合并回对应的Develop分支。
+
+  - Bugfix分支从对应的Release分支派生而来、并将合并回对应的Release分支。
+
