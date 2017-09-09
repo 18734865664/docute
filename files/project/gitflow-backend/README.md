@@ -35,8 +35,7 @@
   - Release分支 `release/{版本}`
   > 如: release/v4.1
   - Bugfix分支  `bugfix/{版本}-{时间}-{开发者}-[功能]`
-  > 如: bugfix/v4.1-170909-wxp-flash_news
-  > bugfix/v4.1-170909-wxp
+  > 如: bugfix/v4.1-170909-wxp-flash_news 或 bugfix/v4.1-170909-wxp
   - Hotfix分支 `hotfix/{版本}-{时间}-{开发者}-{功能}`
   > 如: hotfix/v4.1-170909-wxp-flash_news
 
