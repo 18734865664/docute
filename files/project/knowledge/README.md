@@ -239,7 +239,7 @@
                     *   urllib2自己的特性
                     *   所谓的会跟进去
             *   客户端跳转
-                *   \<meta http-equiv="refresh" content="0; url=http://url" /\>
+                *   \<met\a http-equiv="refresh" content="0; url=http://url" \/>
                     *   htmlparse解析就行了
                 *   location.href="http:/" + "/url";
                     *   正则解析（弱）
