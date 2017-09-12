@@ -198,7 +198,7 @@
     *   ![idea](attachment/images/knowledge/idea.png) 原则
         *   至少完整看完与练习好一本书
         *   至少过一遍官方文档
-    *   ![bookmark](v3.0.html_files//icons/bookmark.png) 基础必备
+    *   ![bookmark](attachment/images/knowledge/bookmark.png) 基础必备
         *   HTTP抓包与调试
             *   Firefox插件
                 *   Firebug
@@ -232,14 +232,14 @@
         *   什么是跳转
             *   服务端跳转
                 *   302
-                    *   \<?php header("Location: p.php"); ?>
+                    *   ```<?php header("Location: p.php"); ?>```
                 *   301
-                    *   \<?php header("HTTP/1.1 301 Moved Permanently"); header("Location: a.php"); ?>
+                    *   ```<?php header("HTTP/1.1 301 Moved Permanently"); header("Location: a.php"); ?>```
                 *   u=urllib2.urlopen(url)后，u.url能得到服务端跳转后的地址
                     *   urllib2自己的特性
                     *   所谓的会跟进去
             *   客户端跳转
-                *   \<met\a http-equiv="refresh" content="0; url=http://url" \/>
+                *   ```<meta http-equiv="refresh" content="0; url=http://url" />```
                     *   htmlparse解析就行了
                 *   location.href="http:/" + "/url";
                     *   正则解析（弱）
@@ -339,7 +339,7 @@
         *   零基础如何学习Web安全
             *   <http://www.zhihu.com/question/21606800/answer/22268855>
         *   Web服务组件
-            *   8+1：一图胜千言哎:) [![User Link](v3.0.html_files//ilink.png)](res/web_component.png)
+            *   8+1：一图胜千言哎:)
             *   钟馗之眼
                 *   网络空间搜索引擎
                 *   [http://zoomeye.org](http://www.zoomeye.org)
