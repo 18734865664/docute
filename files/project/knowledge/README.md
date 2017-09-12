@@ -232,16 +232,16 @@
         *   什么是跳转
             *   服务端跳转
                 *   302
-                    *   \<?php header("Location: 3.php"); ?>
+                    *   \<?php header("Location: p.php"); ?>
                 *   301
-                    *   \<?php header("HTTP/1.1 301 Moved Permanently"); header("Location: 2.php"); ?>
+                    *   \<?php header("HTTP/1.1 301 Moved Permanently"); header("Location: a.php"); ?>
                 *   u=urllib2.urlopen(url)后，u.url能得到服务端跳转后的地址
                     *   urllib2自己的特性
                     *   所谓的会跟进去
             *   客户端跳转
-                *   \<meta http-equiv="refresh" content="0; url=http://www.evilcos.me" />
+                *   \<meta http-equiv="refresh" content="0; url=http://url" /\>
                     *   htmlparse解析就行了
-                *   location.href="http:/" + "/evilcos.me";
+                *   location.href="http:/" + "/url";
                     *   正则解析（弱）
                     *   JavaScript引擎解析（强）
         *   Office能力
