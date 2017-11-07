@@ -76,3 +76,5 @@
 
 4. 发送构建结果给相关成员
 <img src="attachment/images/CI/完整构建6.png" width = "800" heigh = "400" alt = "完整构建6" align = center />
+
+
