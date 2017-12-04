@@ -17,10 +17,10 @@
 ```
 ### 3、命名
 ```
-（1）、类名 使用大驼峰式（StudlyCaps）写法；
+（1）、类名 使用大驼峰式（BackupController）写法；
 ```
 ```
-（2）、（类的）方法名 使用小驼峰（cameCase）写法 如 alarmClockList（）；
+（2）、（类的）方法名 使用小驼峰（alarmClockList）写法；
 ```
 ```
 （3）、函数名使用 小写字母 + 下划线 写法，如 function http_send_post()； 
