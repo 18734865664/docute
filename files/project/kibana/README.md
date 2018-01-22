@@ -15,6 +15,7 @@ logstash-api-antispam* | api  antispam应用日志
 logstash-app-m* | m站 应用日志
 logstash-app-pc* | pc站 应用日志
 logstash-app-shequ* | 社区 应用日志
+logstash-app-rpc* | rpc程序应用日志
 logstash-error-api* | api   nginx错误日志
 logstash-error-m* | m站   nginx错误日志
 logstash-error-pc* | PC站   nginx错误日志
@@ -22,6 +23,9 @@ logstash-error-shequ* | 社区   nginx错误日志
 logstash-m* | m站  nginx访问日志
 logstash-pc* | pc站  nginx访问日志
 logstash-shequ* | 社区  ngixn访问日志
+logstash-cms* | cms  nginx访问日志
+logstash-rpc* | rpc 请求日志
+logstash-varnish* | varnish 访问日志
 
 ## 使用方法
 ### 日志内容查看
